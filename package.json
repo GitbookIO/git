@@ -1,0 +1,22 @@
+{
+    "name": "Progit",
+    "version": "0.0.0",
+    "description": "",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/GitbookIO/progit.git"
+    },
+    "author": "Samy Pesse <samypesse@gmail.com>",
+    "license": "Apache 2",
+    "dependencies": {},
+    "devDependencies": {
+        "grunt": "~0.4.1",
+        "grunt-gitbook": "0.1.1",
+        "grunt-gh-pages": "0.9.1",
+        "grunt-contrib-clean": "~0.5.0",
+        "grunt-contrib-connect": "0.7.1"
+    },
+    "peerDependencies": {
+        "grunt": "~0.4.1"
+    }
+}
