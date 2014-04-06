@@ -5,7 +5,7 @@
 	* [A Short History of Git](chapter-1/history.md)
 	* [Git Basics](chapter-1/basics.md)
 	* [Installing Git](chapter-1/installing.md)
-	* First-Time Git Setup
+	* [First-Time Git Setup](chapter-1/first.md)
 	* Getting Help
 	* Summary
 * Git Basics
