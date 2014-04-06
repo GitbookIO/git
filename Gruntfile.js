@@ -13,7 +13,7 @@ module.exports = function (grunt) {
                 input: "./",
                 title: "Learn Git",
                 description: "The entire Pro Git book.",
-                github: "GitbookIO/gitbook"
+                github: "GitbookIO/git"
             }
         },
         'gh-pages': {
