@@ -12,7 +12,7 @@
 	* [Getting a Git Repository](chapter-2/getting.md)
 	* [Recording Changes to the Repository](chapter-2/recording.md)
 	* [Viewing the Commit History](chapter-2/history.md)
-	* Undoing Things
+	* [Undoing Things](chapter-2/undoing.md)
 	* Working with Remotes
 	* Tagging
 	* Tips and Tricks
@@ -35,8 +35,8 @@
 	* Gitosis
 	* Gitolite
 	* Git Daemon
-	*0 Hosted Git
-	*1 Summary
+	* Hosted Git
+	* Summary
 * Distributed Git
 	* Distributed Workflows
 	* Contributing to a Project
