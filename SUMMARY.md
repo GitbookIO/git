@@ -4,7 +4,7 @@
 	* [About Version Control](chapter-1/version.md)
 	* [A Short History of Git](chapter-1/history.md)
 	* [Git Basics](chapter-1/basics.md)
-	* Installing Git
+	* [Installing Git](chapter-1/installing.md)
 	* First-Time Git Setup
 	* Getting Help
 	* Summary
