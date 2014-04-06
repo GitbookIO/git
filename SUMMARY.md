@@ -11,7 +11,7 @@
 * [Git Basics](chapter-2/README.md)
 	* [Getting a Git Repository](chapter-2/getting.md)
 	* [Recording Changes to the Repository](chapter-2/recording.md)
-	* Viewing the Commit History
+	* [Viewing the Commit History](chapter-2/history.md)
 	* Undoing Things
 	* Working with Remotes
 	* Tagging
