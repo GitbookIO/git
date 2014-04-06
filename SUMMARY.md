@@ -6,7 +6,7 @@
 	* [Git Basics](chapter-1/basics.md)
 	* [Installing Git](chapter-1/installing.md)
 	* [First-Time Git Setup](chapter-1/first.md)
-	* Getting Help
+	* [Getting Help](chapter-1/help.md)
 	* Summary
 * Git Basics
 	* Getting a Git Repository
