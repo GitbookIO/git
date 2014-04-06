@@ -8,7 +8,7 @@
 	* [First-Time Git Setup](chapter-1/first.md)
 	* [Getting Help](chapter-1/help.md)
 	* [Summary](chapter-1/summary.md)
-* Git Basics
+* [Git Basics](chapter-2/README.md)
 	* Getting a Git Repository
 	* Recording Changes to the Repository
 	* Viewing the Commit History
