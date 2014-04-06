@@ -10,7 +10,7 @@
 	* [Summary](chapter-1/summary.md)
 * [Git Basics](chapter-2/README.md)
 	* [Getting a Git Repository](chapter-2/getting.md)
-	* Recording Changes to the Repository
+	* [Recording Changes to the Repository](chapter-2/recording.md)
 	* Viewing the Commit History
 	* Undoing Things
 	* Working with Remotes
