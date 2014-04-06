@@ -2,7 +2,7 @@
 
 * [Getting Started](chapter-1/README.md)
 	* [About Version Control](chapter-1/version.md)
-	* A Short History of Git
+	* [A Short History of Git](chapter-1/history.md)
 	* Git Basics
 	* Installing Git
 	* First-Time Git Setup
