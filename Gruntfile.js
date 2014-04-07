@@ -9,7 +9,7 @@ module.exports = function (grunt) {
     grunt.initConfig({
         'gitbook': {
             development: {
-                dest: path.join(__dirname, ".grunt/gitbook"),
+                output: path.join(__dirname, ".grunt/gitbook"),
                 input: "./",
                 title: "Learn Git",
                 description: "The entire Pro Git book.",
@@ -37,8 +37,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('test', [
         'gitbook',
-        'connect',
-        'clean'
+        'connect'
     ]);
     grunt.registerTask('publish', [
         'gitbook',
