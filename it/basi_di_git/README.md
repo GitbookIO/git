@@ -1,0 +1,3 @@
+# Basi di Git
+
+Se puoi leggere un solo capitolo per imparare Git, leggi questo.  Questo capitolo illustra tutti i comandi base di cui hai bisogno per la stragrande maggioranza delle cose che farai con Git. Alla fine del capitolo sarai in grado di configurare e creare un repository, iniziare e interrompere il tracciamento dei file e mettere in stage e committare le modifiche. Vedremo come impostare Git per ignorare certi file o pattern, come annullare velocemente e facilmente gli errori, come navigare la cronologia del tuo progetto e vedere le modifiche tra le varie commit e come fare il push ed il pull da repository remoti.

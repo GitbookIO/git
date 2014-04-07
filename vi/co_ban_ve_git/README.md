@@ -1,0 +1,3 @@
+# Cơ Bản Về Git
+
+Đây có thể là chương duy nhất bạn cần đọc để có thể bắt đầu sử dụng Git. Chương này bao hàm từng câu lệnh cơ bản bạn cần để thực hiện phần lớn những việc mà bạn sẽ làm với Git. Kết thúc chương này, bạn có thể cấu hình và khởi động được một kho chứa, bắt đầu hay dừng theo dõi các tập tin, và tổ chức/sắp xếp (stage) cũng như commit các thay đổi. Chúng tôi cũng sẽ hướng dẫn bạn làm sao để bỏ qua (ignore) một số tập tin cũng như kiểu tập tin nào đó, làm sao để khôi phục lỗi một cách nhanh chóng và dễ dàng, làm sao để duyệt qua lịch sử của dự án hay xem các thay đổi giữa những lần commit, và làm sao để đẩy lên (push) hay kéo về (pull) từ các kho chứa từ xa.

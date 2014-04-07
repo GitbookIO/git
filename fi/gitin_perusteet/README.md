@@ -1,0 +1,3 @@
+# Gitin perusteet
+
+Jos voit lukea vain yhden kappaleen päästäksesi vauhtiin Gitin kanssa, se on tämä kappale. Tämä kappale sisältää jokaisen peruskomennon, jonka tarvitset tehdäksesi valtavan määrän asioita, joiden kanssa viimein tulet käyttämään aikaasi Gitillä työskennellessäsi. Tämän kappaleen lopussa, sinun tulisi pystyä konfiguroimaan ja alustamaan tietolähde, aloittamaan ja lopettamaan tiedostojen jäljitys sekä lavastaa ja tehdä pysyviä muutoksia. Me myös näytämme sinulle kuinka asettaa Git niin, että se jättää tietyt tiedostot ja tiedostomallit huomioimatta, kuinka kumota virheet nopeasti ja helposti, kuinka selata projektisi historiaa ja tarkastella muutoksia pysyvien muutosten välillä sekä kuinka työntää ja vetää etätietolähteistä.

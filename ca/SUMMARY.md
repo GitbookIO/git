@@ -1,0 +1,8 @@
+* [Comencem](comencem/README.md)
+	* [Control de Versions](comencem/control_de_versions.md)
+	* [A Short History of Git](comencem/a_short_history_of_git.md)
+	* [Git Basics](comencem/git_basics.md)
+	* [Installing Git](comencem/installing_git.md)
+	* [First-Time Git Setup](comencem/first_time_git_setup.md)
+	* [Getting Help](comencem/getting_help.md)
+	* [Summary](comencem/summary.md)

@@ -1,0 +1,57 @@
+# Puntos de enganche Git
+
+Al igual que en otros sistemas de control de versiones, Git también cuenta con mecanismos para lanzar scrips de usuario cuando suceden ciertas acciones importantes. Hay dos grupos de esos puntos de lanzamiento: los del lado cliente y los del lado servidor. Los puntos del lado cliente están relacionados con operaciones tales como la confirmación de cambios (commit) o la fusión (merge). Los del lado servidor están relacionados con operaciones tales como la recepción de contenidos enviados (push) a un servidor. Estos puntos de enganche pueden utilizarse para multitud de aplicaciones. Vamos a ver unas pocas de ellas.
+
+## Instalando un punto de enganche
+
+Los puntos de enganche se guardan en la subcarpeta 'hooks' de la carpeta Git. En la mayoría de proyectos, estará en '.git/hooks'. Por defecto, esta carpeta contiene unos cuantos scripts de ejemplo. Algunos de ellos son útiles por sí mismos; pero su misión principal es la de documentar las variables de entrada para cada script. Todos los ejemplos se han escrito como scripts de shell, con algo de código Perl embebido en ellos. Pero cualquier tipo de script ejecutable que tenga el nombre adecuado puede servir igual de bien --los puedes escribir en Ruby o en Python o en cualquier lenguaje de scripting con el que trabajes--. En las versiones de Git posteriores a la 1.6, esos ejemplos tendrán un nombre acabado en .sample; y tendras que renombrarlos. Para las versiones anteriores a la 1.6, los ejemplos tienen el nombre correcto, pero les falta la marca de ejecutables.
+
+Para activar un punto de enganche para un script, pon el archivo correspondiente en la carpeta 'hooks'; con el nombre adecuado y con la marca de ejecutable. A partir de ese momento, será automáticamente lanzado cuando se dé la acción correspondiente. Vamos a ver la mayoría de nombres de puntos de enganche disponibles.
+
+## Puntos de enganche del lado cliente
+
+Hay muchos de ellos. En esta sección los dividiremos en puntos de enganche en el flujo de trabajo de confirmación de cambios, puntos en el flujo de trabajo de correo electrónico y resto de puntos de enganche del lado servidor. 
+
+### Puntos en el flujo de trabajo de confirmación de cambios
+
+Los primeros cuatro puntos de enganche están relacionados con el proceso de confirmación de cambios. Primero se activa el punto de enganche 'pre-commit', incluso antes de que teclees el mensaje de confirmación. Se suele utilizar para inspeccionar la instantánea (snapshot) que vas a confirmar, para ver si has olvidado algo, para asegurar que las pruebas se ejecutan, o para revisar cualquier aspecto que necesites inspeccionar en el codigo. Saliendo con un valor de retorno distinto de cero, se aborta la confirmación de cambios. Aunque siempre puedes saltartelo con la orden 'git commit --no-verify'. Puede ser util para realizar tareas tales como revisar el estilo del código (lanzando 'lint' o algo equivalente), revisar los espacios en blanco de relleno (el script de ejemplo hace exactamente eso), o revisar si todos los nuevos métodos llevan la adecuada documentación.
+
+El punto de enganche 'prepare-commit-msg' se activa antes de arrancar el editor del mensaje de confirmación de cambios, pero después de crearse el mensaje por defecto. Te permite editar el mensaje por defecto, antes de que lo vea el autor de la confirmación de cambios. Este punto de enganche recibe varias entradas: la ubicación (path) del archivo temporal donde se almacena el mensaje de confirmación, el tipo de confirmación y la clave SHA-1 si estamos enmendando un commit existente. Este punto de enganche no tiene mucha utilidad para las confirmaciones de cambios normales; pero sí para las confirmaciones donde el mensaje por defecto es autogenerado, como en las confirmaciones de fusiones (merge), los mensajes con plantilla, las confirmaciones aplastadas (squash), o las confirmaciones de correccion (amend). Se puede utilizar combinandolo con una plantilla de confirmación, para poder insertar información automáticamente.
+
+El punto de enganche 'commit-msg' recibe un parámetro: la ubicación (path) del archivo temporal que contiene el mensaje de confirmación actual. Si este script termina con un código de salida distinto de cero, Git aborta el proceso de confirmación de cambios; permitiendo así validar el estado del proyecto o el mensaje de confirmación antes de permitir continuar. En la última parte de este capítulo, veremos cómo podemos utilizar este punto de enganche  para revisar si el mensaje de confirmación es conforme a un determinado patrón obligatorio.
+
+Despues de completar todo el proceso de confirmación de cambios, es cuando se lanza el punto de enganche 'post-commit'. Este no recibe ningún parámetro, pero podemos obtener facilmente la última confirmación de cambios con el comando 'git log -1 HEAD'. Habitualmente, este script final se suele utilizar para realizar notificaciones o tareas similares.
+
+Los scripts del lado cliente relacionados con la confirmación de cambios pueden ser utilizados en prácticamente cualquier flujo de trabajo. A menudo, se suelen utilizar para obligar a seguir ciertas reglas; aunque es importante indicar que estos script no se transfieren durante el clonado. Puedes implantar reglas en el lado servidor para rechazar envios (push) que no cumplan ciertos estandares, pero es completamente voluntario para los desarroladores el utilizar scripts en el lado cliente. Por tanto, estos scripts son para ayudar a los desarrolladores, y, como tales, han de ser configurados y mantenidos por ellos, pudiendo ser sobreescritos o modificados por ellos en cualquier momento.
+
+### Puntos en el flujo de trabajo del correo electrónico
+
+Tienes disponibles tres puntos de enganche en el lado cliente para interactuar con el flujo de trabajo de correo electrónico. Todos ellos se invocan al utilizar el comando 'git am', por lo que si no utilizas dicho comando, puedes saltar directamente a la siguiente sección. Si recibes parches a través de corrreo-e preparados con 'git format-patch', es posible que parte de lo descrito en esta sección te pueda ser util.
+
+El primer punto de enganche que se activa es 'applypatch-msg'. Recibe un solo argumento: el nombre del archivo temporal que contiene el mensaje de confirmación propuesto. Git abortará la aplicación del parche si este script termina con un código de salida distinto de cero. Puedes utilizarlo para asegurarte de que el mensaje de confirmación esté correctamente formateado o para normalizar el mensaje permitiendo al script que lo edite sobre la marcha.
+
+El siguiente punto de enganche que se activa al aplicar parches con 'git am' es el punto 'pre-applypatch'. No recibe ningún argumento de entrada y se lanza después de que el parche haya sido aplicado, por lo que puedes utilizarlo para revisar la situación (snapshot) antes de confirmarla. Con este script, puedes lanzar pruebas o similares para chequear el arbol de trabajo. Si falta algo o si alguna de las pruebas falla, saliendo con un código de salida distinto de cero abortará el comando 'git am' sin confirmar el parche.
+
+El último punto de enganche que se activa durante una operación 'git am' es el punto 'post-applypatch'. Puedes utilizarlo para notificar de su aplicación al grupo o al autor del parche. No puedes detener el proceso de parcheo con este script.
+
+### Otros puntos de enganche del lado cliente
+
+El punto 'pre-rebase' se activa antes de cualquier reorganización y puede abortarla si retorna con un codigo de salida distinto de cero. Puedes usarlo para impedir reorganizaciones de cualquier confirmación de cambios ya enviada (push) a algún servidor.  El script de ejemplo para 'pre-rebase' hace precisamente eso, aunque asumiendo que 'next' es el nombre de la rama publicada. Si lo vas a utilizar, tendrás que modificarlo para que se ajuste al nombre que tenga tu rama publicada.
+
+Tras completarse la ejecución de un comando 'git checkout', es cuando se activa el punto de enganche 'post-checkout. Lo puedes utilizar para ajustar tu carpeta de trabajo al entorno de tu proyecto. Entre otras cosas, puedes mover grandes archivos binarios de los que no quieras llevar control, puedes autogenerar documentación,.... 
+
+Y, por último, el punto de enganche 'post-merge' se activa tras completarse la ejecución de un comando 'git merge'. Puedes utilizarlo para recuperar datos de tu carpeta de trabajo que Git no puede controlar, como por ejemplo datos relativos a permisos. Este punto de enganche puede utilizarse también para comprobar la presencia de ciertos archivos, externos al control de Git, que desees copiar cada vez que cambie la carpeta de trabajo.
+
+## Puntos de enganche del lado servidor
+
+Aparte de los puntos del lado cliente, como administrador de sistemas, puedes utilizar un par de puntos de enganche importantes en el lado servidor; para implementar prácticamente cualquier tipo de política que quieras mantener en tu proyecto. Estos scripts se lanzan antes y después de cada envio (push) al servidor. El script previo, puede terminar con un código de salida distinto de cero y abortar el envio, devolviendo el correspondiente mensaje de error al cliente. Este script puede implementar políticas de recepción tan complejas como desees.
+
+### 'pre-receive' y 'post-receive'
+
+El primer script que se activa al manejar un envio de un cliente es el correspondiente al punto de enganche 'pre-receive'. Recibe una lista de referencias que se están enviando (push) desde la entrada estandar (stdin); y, si termina con un codigo de salida distinto de cero, ninguna de ellas será aceptada. Puedes utilizar este punto de enganche para realizar tareas tales como la de comprobar que ninguna de las referencias actualizadas no son de avance directo (non-fast-forward); o para comprobar que el usuario que realiza el envio tiene realmente permisos para para crear, borrar o modificar cualquiera de los archivos que está tratando de cambiar.
+
+El punto de enganche 'post-receive' se activa cuando termina todo el proceso, y se puede utilizar para actualizar otros servicios o para enviar notificaciones a otros usuarios. Recibe los mismos datos que 'pre-receive' desde la entrada estandar. Algunos ejemplos de posibles aplicaciones pueden ser la de alimentar una lista de correo-e, avisar a un servidor de integración continua, o actualizar un sistema de seguimiento de tickets de servicio --pudiendo incluso procesar el mensaje de confirmación para ver si hemos de abrir, modificar o dar por cerrado algún ticket--. Este script no puede detener el proceso de envio, pero el cliente no se desconecta hasta que no se completa su ejecución; por tanto, has de ser cuidadoso cuando intentes realizar con él tareas que puedan requerir mucho tiempo.
+
+### update
+
+El punto de enganche 'update' es muy similar a 'pre-receive', pero con la diferencia de que se activa una vez por cada rama que se está intentando actualizar con el envio. Si la persona que realiza el envio intenta actualizar varias ramas, 'pre-receive' se ejecuta una sola vez, mientras que 'update' se ejecuta tantas veces como ramas se estén actualizando. El lugar de recibir datos desde la entrada estandar (stdin), este script recibe tres argumentos: el nombre de la rama, la clave SHA-1 a la que esta apuntada antes del envio, y la clave SHA-1 que el usuario está intentando enviar. Si el script 'update' termina con un código de salida distinto de cero, únicamente los cambios de esa rama son rechazados; el resto de ramas continuarán con sus actualizaciones.

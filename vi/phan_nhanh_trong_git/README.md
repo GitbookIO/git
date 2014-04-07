@@ -1,0 +1,5 @@
+# Phân Nhánh Trong Git
+
+Hầu hết mỗi hệ quản trị phiên bản (VCS) đều hỗ trợ một dạng của phân nhánh. Phân nhánh có nghĩa là bạn phân tách ra từ luồng phát triển chính và tiếp tục làm việc mà không sợ làm ảnh hưởng đến luồng chính. Trong nhiều VCS, đây dường như là một quá trình đòi hỏi nhiều công sức và sự cố gắng, thường thì bạn tạo một bản sao mới từ thư mục chứa mã nguồn, nó có thể mất khá nhiều thời gian trên các dự án lớn.
+
+Nhiều người nhắc đến mô hình phân nhánh của Git như là "chức năng hủy diệt", và chính nó làm cho Git trở nên khác biệt trong cộng đồng VCS. Tại sao nó lại đặc biệt đến vậy? Cách Git phân nhánh "nhẹ" một cách đáng kinh ngạc, các hoạt động tạo nhánh xảy ra gần như ngay lập tức và việc di chuyển đi lại giữa các nhánh cũng thường rất nhanh. Không giống các VCSs khác, Git khuyến khích sử dụng rẽ nhánh và tích hợp thường xuyên cho workflow, thậm chí nhiều lần trong một ngày. Hiểu và thành thạo tính năng này cung cấp cho bạn một công cụ mạnh mẽ, độc đáo và có thể thay đổi được cách bạn thường phát triển phần mềm.

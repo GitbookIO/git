@@ -1,0 +1,5 @@
+# Větve v systému Git
+
+Téměř každý systém VCS podporuje do určité míry větvení. Větvení znamená, že se můžete odloučit od hlavní linie vývoje a pokračovat v práci, aniž byste tuto hlavní linii zanášeli. V mnoha VCS nástrojích se může jednat o poněkud náročný proces, který často vyžaduje vytvoření nové kopie adresáře se zdrojovým kódem. To může – zvláště u velkých projektů – trvat poměrně dlouho.
+
+Někteří lidé mluví o modelu větvení v systému Git jako o jeho exkluzivní funkci. Není sporu o tom, že je Git díky tomuto modelu v komunitě VCS poměrně jedinečný. V čem je jeho větvení ojedinělé? Větvení je v systému Git neuvěřitelně lehké a operace s ním související probíhají téměř okamžitě. Stejně rychlé je i přepínání mezi jednotlivými větvemi. Na rozdíl od ostatních systémů VCS Git podporuje způsob práce s bohatým větvením a častým slučováním, a to i několikrát za den. Pokud tuto funkci pochopíte a zvládnete její ovládání, dostanete do ruky výkonný a unikátní nástroj, který doslova změní váš pohled na vývoj.

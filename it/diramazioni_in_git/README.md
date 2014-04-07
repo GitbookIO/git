@@ -1,0 +1,5 @@
+# Diramazioni in Git
+
+Praticamente ogni VCS ha un suo modo di supportare le diramazioni. Diramazione significa divergere dal flusso principale di sviluppo continuando a lavorare senza correre il rischio senza pasticciare il flusso principale. In molti strumenti VCS questo è un processo per certi versi dispendioso, spesso richiede la creazione di una nuova copia della directory del codice sorgente che in grandi progetti può richiedere molto tempo.
+
+Molte persone fanno riferimento al modello di diramazioni di Git indicandola come la “caratteristica vincente“, e questo certamente separa Git dagli altri VCS. Perché è così speciale? Git crea ramificazioni in modo incredibilmente semplice e leggero, permettendo operazioni di diramazione praticamente istantanee come lo sono anche i passaggi da un ramo ad un altro. Diversamente da molti altri VCS, Git incoraggia un metodo di lavoro che sfrutta le ramificazioni e le unioni frequentemente, anche molte volte al giorno. Capire e padroneggiare questa funzionalità mette a disposizione uno strumento potente ed unico e può letteralmente modificare il modo in cui si lavora.

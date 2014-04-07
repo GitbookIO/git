@@ -1,0 +1,3 @@
+# Recapitulación
+
+Se han visto una serie de herramientas avanzadas que permiten manipular de forma precisa las confirmaciones de cambio y el área de preparación. Cuando se detectan problemas, se necesita tener la capacidad de localizar facilmente la confirmación de cambios en que fueron introducidos. En caso de requerir tener subproyectos dentro de un proyecto principal, se han visto unos cuantos caminos para resolver este requerimiento. En este punto, deberiamos ser capaces de realizar la mayoria de las acciones necesarias en el día a día con Git; realizandolas de manera confortable y segura.

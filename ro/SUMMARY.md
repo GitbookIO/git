@@ -1,0 +1,8 @@
+* [Introducere](introducere/README.md)
+	* [Despre Controlul Versiunilor](introducere/despre_controlul_versiunilor.md)
+	* [O Scurtă Istorie a Git](introducere/o_scurta_istorie_a_git.md)
+	* [Bazele Git](introducere/bazele_git.md)
+	* [Instalarea Git](introducere/instalarea_git.md)
+	* [Stările Git Pentru Prima Rulare](introducere/starile_git_pentru_prima_rulare.md)
+	* [Cum să Obțineți Ajutor](introducere/cum_sa_obtineti_ajutor.md)
+	* [Sumar](introducere/sumar.md)
