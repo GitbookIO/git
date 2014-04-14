@@ -9,7 +9,6 @@ module.exports = function (grunt) {
     grunt.initConfig({
         'gitbook': {
             development: {
-                output: path.join(__dirname, ".grunt/gitbook"),
                 input: "./",
                 title: "Learn Git",
                 description: "The entire Pro Git book.",
@@ -18,17 +17,17 @@ module.exports = function (grunt) {
         },
         'gh-pages': {
             options: {
-                base: '.grunt/gitbook'
+                base: '_book'
             },
             src: ['**']
         },
         'clean': {
-            files: '.grunt'
+            files: '_book'
         },
         'http-server': {
             'dev': {
                 // the server root directory
-                root: '.grunt/gitbook',
+                root: '_book',
 
                 port: 4000,
                 host: "127.0.0.1",
