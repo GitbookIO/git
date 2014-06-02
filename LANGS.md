@@ -2,6 +2,8 @@
 * [Deutsch](de)
 * [Español](es)
 * [Français](fr)
+
+<!--
 * [Português](pt-br)
 * [Italiano](it)
 * [العربية](ar)
@@ -27,3 +29,4 @@
 * [Tiếng Việt](vi)
 * [漢語](zh-tw)
 * [中文](zh)
+-->
